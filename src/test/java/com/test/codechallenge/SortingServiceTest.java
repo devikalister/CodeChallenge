@@ -12,7 +12,7 @@ import com.app.codechallenge.service.SortingService;
 
 public class SortingServiceTest {
 
-	SortingService sortingService = new SortingService();
+	private SortingService sortingService = new SortingService();
 
 	@Test
 	public void sortOddEvenNumbersTest() {
@@ -38,6 +38,6 @@ public class SortingServiceTest {
 	public void sortOddEvenNumbersWithSingleElementTest() {
 		int[] inputArray = new int[] { 2 };
 		List<Integer> uniquePermutationsList = sortingService.sortOddEvenNumbers(inputArray);
-		assertEquals(uniquePermutationsList, Arrays.asList(Arrays.stream(inputArray).boxed().toArray(Integer[]::new)));
+		assertEquals(uniquePermutationsList, Arrays.asList(inputArray[0]));
 	}
 }

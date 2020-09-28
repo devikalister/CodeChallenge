@@ -12,7 +12,7 @@ import com.app.codechallenge.service.PermutationService;
 
 public class PermutationServiceTest {
 
-	PermutationService permutationService = new PermutationService();
+	private PermutationService permutationService = new PermutationService();
 
 	@Test
 	public void generateUniquePermutationsTest() {

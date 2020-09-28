@@ -14,13 +14,11 @@ public class CodeChallenge {
 		SortingService sortingService = new SortingService();
 		List<Integer> sortedList = sortingService.sortOddEvenNumbers(inputArray);
 		logger.info("The sorted list is ");
-		for (int i = 0; i < sortedList.size(); i++) {
-			System.out.print(sortedList.get(i) + "  ");
-		}
+		sortedList.forEach(i -> logger.info(i.toString()));
 		// To generate unique permutations using permutation service
 		PermutationService permutationService = new PermutationService();
 		List<List<Integer>> uniquePermutationsList = permutationService.generatePermutations(inputArray);
 		logger.info("The unique permutations are ");
-		uniquePermutationsList.stream().forEach(i -> logger.info(i.toString()));
+		uniquePermutationsList.forEach(i -> logger.info(i.toString()));
 	}
 }
