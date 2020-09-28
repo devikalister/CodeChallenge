@@ -32,8 +32,9 @@ public class PermutationService {
 	 */
 	private boolean isSwapNeeded(int start, int currentIndex, int[] arr) {
 		for (int i = start; i < currentIndex; i++) {
-			if (arr[i] == arr[currentIndex])
+			if (arr[i] == arr[currentIndex]) {
 				return false;
+			}
 		}
 		return true;
 	}
