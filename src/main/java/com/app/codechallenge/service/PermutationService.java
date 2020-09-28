@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class PermutationService {
-
 	/**
 	 * To generate the unique permutations based on the given array
 	 * 
