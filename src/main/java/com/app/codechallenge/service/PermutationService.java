@@ -1,8 +1,11 @@
 package com.app.codechallenge.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class PermutationService {
 	/**
@@ -12,10 +15,10 @@ public class PermutationService {
 	 * @return unique permutations list
 	 */
 	public List<List<Integer>> generatePermutations(int[] arr) {
-		if (arr == null || arr.length == 0) {
+		if (Objects.isNull(arr) || arr.length == 0) {
 			return Collections.emptyList();
 		}
-		List<List<Integer>> uniquePermutationsList = new ArrayList<List<Integer>>();
+		List<List<Integer>> uniquePermutationsList = new ArrayList<>();
 		generatePermutationsRecursive(arr, 0, arr.length, uniquePermutationsList);
 		return uniquePermutationsList;
 	}
@@ -46,11 +49,7 @@ public class PermutationService {
 	private void generatePermutationsRecursive(int[] arr, int currentIndex, int n,
 			List<List<Integer>> uniquePermutationsList) {
 		if (currentIndex == n - 1) {
-			List<Integer> arrList = new ArrayList<Integer>(arr.length);
-			for (int i : arr) {
-				arrList.add(i);
-			}
-			uniquePermutationsList.add(arrList);
+			uniquePermutationsList.add(Arrays.stream(arr).boxed().collect(Collectors.toList()));
 			return;
 		} else {
 			for (int i = currentIndex; i < arr.length; i++) {

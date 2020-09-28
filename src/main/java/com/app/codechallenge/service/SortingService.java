@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class SortingService {
 	/**
@@ -13,19 +14,22 @@ public class SortingService {
 	 * @return sorted array list with odd numbers sorted first and then even numbers
 	 */
 	public List<Integer> sortOddEvenNumbers(int arr[]) {
-		if (arr == null || arr.length == 0)
+		if (Objects.isNull(arr) || arr.length == 0) {
 			return Collections.emptyList();
-		if (arr.length == 1)
+		}
+		if (arr.length == 1) {
 			return Arrays.asList(arr[0]);
-		List<Integer> evenList = new ArrayList<Integer>();
-		List<Integer> oddList = new ArrayList<Integer>();
-		List<Integer> finalList = new ArrayList<Integer>();
+		}
+		List<Integer> evenList = new ArrayList<>();
+		List<Integer> oddList = new ArrayList<>();
+		List<Integer> finalList = new ArrayList<>();
 		for (int i = 0; i < arr.length; i++) {
 			// segregate odd and even numbers in the array as a separate list
-			if (arr[i] % 2 == 0)
+			if (arr[i] % 2 == 0) {
 				evenList.add(arr[i]);
-			else
+			} else {
 				oddList.add(arr[i]);
+			}
 		}
 		oddList = sortList(oddList);
 		evenList = sortList(evenList);
